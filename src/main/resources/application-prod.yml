@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: postman.doc
+  datasource:
+    hikari:
+      pool-name: HikariCP
+      minimum-idle: 60000
+      idle-timeout: 3000
+      maximum-pool-size: 30
+      max-lifetime: 60000
+      connection-timeout: 60000
+server:
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+    min-response-size: 1024
+logging:
+  config: classpath:mylogback.xml
+  path: ./log
+  level:
+    root: error
+    com.ytkj: info
+    com.ytkj.mip.mapper: debug
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    logfile:
+      external-file: ${logging.path}/info.log
+    health:
+      show-details: ALWAYS
+
+
+

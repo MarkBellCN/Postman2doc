@@ -1,0 +1,16 @@
+#server
+server:
+  port: 7900
+  servlet:
+    context-path: /postman2doc
+  tomcat:
+    max-threads: 1024
+    minSpareThreads : 25
+    acceptCount  : 1024
+logging:
+  logstash:
+    ## 日志收集平台 根据现场环境必须修改url
+    url: www.ytkj.app:4560
+spring:
+  profiles:
+    active: dev
